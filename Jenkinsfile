@@ -1,6 +1,16 @@
+def gv
 pipeline {
     agent any
     stages {
+        stage('Run script') {
+            steps {
+                echo 'executing script...'
+                script {
+                    gv = load 'script.groovy'
+                    gv.echoHello()
+                }
+            }
+        }
         stage('Run frontend') {
             steps {
                 echo 'executing yarn start...'
