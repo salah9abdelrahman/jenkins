@@ -19,4 +19,21 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'Build completed'
+        }
+        success {
+            echo 'Build completed successfully'
+        }
+        failure {
+            echo 'Build failed'
+        }
+        unstable {
+            echo 'Build unstable'
+        }
+        changed {
+            echo 'Build changed'
+        }
+    }
 }
